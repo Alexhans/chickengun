@@ -10,16 +10,23 @@ UCLASS()
 class CHICKENGUN_API AWeaponBase : public AActor
 {
 	GENERATED_BODY()
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Default")
-	float damage = 100.0f;
 
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Default")
-	//float damage = 100.0f;
-	AActor bullet = 
+
 public:	
 	// Sets default values for this actor's properties
 	AWeaponBase();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Default")
+	float damage = 100.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Default")
+	float knockback = 10.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Default")
+	TSubclassOf<AActor> bullet;
+
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Default")
+	//Sound
 
 protected:
 	// Called when the game starts or when spawned
