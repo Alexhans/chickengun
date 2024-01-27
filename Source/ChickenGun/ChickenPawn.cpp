@@ -66,6 +66,14 @@ void AChickenPawn::Gazoomba()
 {
 	UE_LOG(LogTemp, Warning, TEXT("I Gazoomba"));
 	this->health = 99.0f;
+	this->Shoot();
+	this->Shoot();
 }
+
+void AChickenPawn::Shoot_Implementation()
+{
+}
+
+
 
 

@@ -47,6 +47,6 @@ public:
 	void Gazoomba();
 
 	// Events
-	UFUNCTION(BlueprintImplementableEvent, Category = "Default")
+	UFUNCTION(BlueprintNativeEvent, Category = "Default")
 	void Shoot();
 };
