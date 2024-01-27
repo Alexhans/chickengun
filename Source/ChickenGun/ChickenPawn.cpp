@@ -2,12 +2,23 @@
 
 
 #include "ChickenPawn.h"
+#include "WeaponBase.h"
 
 // Sets default values
 AChickenPawn::AChickenPawn() : health(100.0f)
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	// FVector pos(0, 0, 0);
+	// FRotator rotation(0.0f);
+	//AWeaponBase *some = world->SpawnActor<AWeaponBase>(initialWeapon, GetActorLocation(), GetActorRotation());;
+	// UWorld* world = GetWorld();
+		
+	UE_LOG(LogTemp, Warning, TEXT("constructor"));
+
+
+	//currentWeapon = NewObject<AWeaponBase>(this, initialWeapon->StaticClass());
 
 }
 
@@ -18,13 +29,21 @@ void AChickenPawn::BeginPlay()
 
 	UE_LOG(LogTemp, Warning, TEXT("AChickenPawn says Hello World"));
 
-	
+	if (initialWeapon != nullptr) {
+		// auto a = NewObject<AWeaponBase>(this, initialWeapon->StaticClass());
+		currentWeapon = initialWeapon;
+	}
+	else {
+
+		UE_LOG(LogTemp, Warning, TEXT("empty"));
+	}
 }
 
 // Called every frame
 void AChickenPawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	this->health -= 0.10f;
 
 }
 
@@ -34,4 +53,9 @@ void AChickenPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 }
+
+void AChickenPawn::HandleShot()
+{
+}
+
 

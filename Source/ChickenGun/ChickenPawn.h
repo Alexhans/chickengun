@@ -6,6 +6,8 @@
 #include "GameFramework/Pawn.h"
 #include "ChickenPawn.generated.h"
 
+class AWeaponBase;
+
 UCLASS()
 class CHICKENGUN_API AChickenPawn : public APawn
 {
@@ -17,6 +19,15 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Default")
 	float health;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Default")
+	TSubclassOf<AWeaponBase> initialWeapon;
+	
+	//AWeaponBase* currentWeapon;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Default")
+	TSubclassOf<AWeaponBase> currentWeapon;
+	
+
 
 protected:
 	// Called when the game starts or when spawned
@@ -29,4 +40,10 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	UFUNCTION(BlueprintCallable, Category = "Default")
+	void HandleShot();
+
+	// Events
+	UFUNCTION(BlueprintImplementableEvent, Category = "Default")
+	void Shoot();
 };
