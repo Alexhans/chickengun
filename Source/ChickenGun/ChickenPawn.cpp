@@ -36,6 +36,7 @@ void AChickenPawn::BeginPlay()
 	else {
 
 		UE_LOG(LogTemp, Warning, TEXT("empty"));
+		GLog->Log("emptydasdas");
 	}
 }
 
@@ -59,20 +60,36 @@ void AChickenPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 void AChickenPawn::HandleShot()
 {
 	UE_LOG(LogTemp, Warning, TEXT("I handled the show with Code"));
+	GLog->Log("I handled the shot with codedddddd");
 	this->health *= 10.0f;
 }
 
 void AChickenPawn::Gazoomba()
 {
 	UE_LOG(LogTemp, Warning, TEXT("I Gazoomba"));
+	GLog->Log("GAZORPO");
 	this->health = 99.0f;
 	this->Shoot();
 	UE_LOG(LogTemp, Warning, TEXT("I Gazoomba 2"));
 }
 
-void AChickenPawn::Shoot_Implementation()
+void AChickenPawn::HandleLayEgg()
 {
+	GLog->Log("Laying egg");
+
+	UWorld* World = this->GetWorld();
+	this->GetTransform();
+	
+	//FActorSpawnParameters SpawnParams;
+
+	//CreateDefaultSubobject()
+	//SpawnParams.Template = ExistingActor;
+	//World->SpawnActor<AMyActor>(ExistingActor->GetClass(), SpawnLocation, SpawnRotation, SpawnParams);
+	// world->SpawnActor<AActor>(initialWeapon, GetActorLocation(), GetActorRotation());;
+
+
 }
+
 
 
 

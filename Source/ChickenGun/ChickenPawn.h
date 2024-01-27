@@ -46,7 +46,16 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Default")
 	void Gazoomba();
 
+	UFUNCTION(BlueprintCallable, Category = "Default")
+	void HandleLayEgg();
+
 	// Events
-	UFUNCTION(BlueprintNativeEvent, Category = "Default")
+	UFUNCTION(BlueprintImplementableEvent, Category = "Default")
 	void Shoot();
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Default")
+	void LayEgg();
+
+
+
 };
