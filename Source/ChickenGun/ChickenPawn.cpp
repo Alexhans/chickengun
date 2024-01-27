@@ -43,7 +43,9 @@ void AChickenPawn::BeginPlay()
 void AChickenPawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	this->health -= 0.10f;
+	if (this->health > 0.0f) {
+		this->health -= 0.10f;
+	}
 
 }
 
@@ -56,6 +58,14 @@ void AChickenPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 
 void AChickenPawn::HandleShot()
 {
+	UE_LOG(LogTemp, Warning, TEXT("I handled the show with Code"));
+	this->health *= 10.0f;
+}
+
+void AChickenPawn::Gazoomba()
+{
+	UE_LOG(LogTemp, Warning, TEXT("I Gazoomba"));
+	this->health = 99.0f;
 }
 
 

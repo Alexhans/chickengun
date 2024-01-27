@@ -43,6 +43,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Default")
 	void HandleShot();
 
+	UFUNCTION(BlueprintCallable, Category = "Default")
+	void Gazoomba();
+
 	// Events
 	UFUNCTION(BlueprintImplementableEvent, Category = "Default")
 	void Shoot();
